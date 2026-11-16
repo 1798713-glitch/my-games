@@ -1,20 +1,54 @@
-<!DOCTYPE html>
+
 <html>
 <head>
-<title>My Game Zone</title>
+<title>Glitch Games</title>
 <style>
+<!DOCTYPE html>
+
 body {
-background: #101020;
-color: white;
-text-align: center;
-font-family: Arial;
+background:#101020;
+color:white;
+font-family:Arial;
+text-align:center;
 }
-h1 {color: cyan;}
+h1 {color:cyan;font-size:40px}
+button {
+background:cyan;
+padding:15px;
+margin:10px;
+border:0;
+border-radius:12px;
+font-size:18px;
+}
 </style>
 </head>
 <body>
-<h1>MY GAME ZONE</h1>
-<h2>Welcome to my website</h2>
-<p>My gaming website!</p>
+<h1>GLITCH GAMES</h1>
+<h2>Choose a game</h2>
+
+<button onclick="guess()">Number Guess</button>
+<button onclick="clicker()">Click Game</button>
+<button onclick="tic()">Tic Tac Toe</button>
+
+<p id="game">Choose a game to play!</p>
+
+<script>
+function guess() {
+let answer = Math.floor(Math.random()*10)+1;
+let choice = prompt("Guess a number from 1 to 10");
+document.getElementById("game").innerText =
+Number(choice) === answer ? "YOU WON!" : "The number was "+answer;
+}
+function clicker() {
+let count = 0;
+document.getElementById("game").innerHTML =
+'<button onclick="document.getElementById(\'score\').innerText=Number(document.getElementById(\'score\').innerText)+1">CLICK ME!</button><p id="score">0</p>';
+}
+function tic() {
+document.getElementById("game").innerText =
+"Coming soon!";
+}
+</script>
 </body>
 </html>
+
